@@ -60,14 +60,15 @@ jobs:
           -H "Content-Type: application/json" \
           -d '{
                   "input": {
-                  "pretrained_model": "XpucT/Deliberate",
+
                       "instance_prompt": "illustration of a ${{ inputs.prompt-identifier }} style",
                       "class_prompt": "illustration of a style",
                       "instance_data": "${{ steps.upload-training-data.outputs.INSTANCE_DATA_URL }}",
+                      "ckpt_base": "https://storage.googleapis.com/replicant-misc/openjourney-v2.ckpt",
                       "max_train_steps": ${{ inputs.max-train-steps }}
                   },
                   "model": "${{ inputs.model-name }}",
-                  "trainer_version": "e5f2516050934b509bfec2a1ef59c14143ce8acecce961232ef7381417c42661"
+                  "trainer_version": "e08aad944e0cf515d59da9fe0f0a32278be9395505b17c71d0e6ff5ec0b91a8c"
               }' \
           https://dreambooth-api-experimental.replicate.com/v1/trainings
 
